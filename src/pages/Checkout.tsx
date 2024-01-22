@@ -100,12 +100,12 @@ export default function Checkout() {
               <div className="flex justify-between items-center bg-gray-100 p-1 rounded-lg">
                 <div className="flex items-center">
                   <img
-                    src={product.image}
+                    src={product.thumbnail}
                     className="h-[82px] rounded-md mr-2"
                     alt=""
                   />
                   <div>
-                    <h1 className="text-lg mb-2">{product.name}</h1>
+                    <h1 className="text-lg mb-2">{product.title}</h1>
                     <p>Price: {product.price}</p>
                   </div>
                 </div>

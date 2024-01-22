@@ -17,7 +17,7 @@ const cartSlice = createSlice({
   reducers: {
     addToCart: (state, action: PayloadAction<IProduct>) => {
       const existingProduct = state.products.find(
-        (p) => p._id === action.payload._id
+        (p) => p.id === action.payload.id
       );
       if (existingProduct) {
         existingProduct.quantity = existingProduct.quantity! + 1;
@@ -29,7 +29,7 @@ const cartSlice = createSlice({
     },
     incQuantity: (state, action: PayloadAction<number>) => {
       const existingProduct = state.products.find(
-        (p) => p._id === action.payload
+        (p) => p.id === action.payload
       );
       if (existingProduct) {
         existingProduct.quantity! += 1;
@@ -38,7 +38,7 @@ const cartSlice = createSlice({
     },
     decQuantity: (state, action: PayloadAction<number>) => {
       const existingProduct = state.products.find(
-        (p) => p._id === action.payload
+        (p) => p.id === action.payload
       );
       if (existingProduct && existingProduct.quantity! > 1) {
         existingProduct.quantity! -= 1;
@@ -47,14 +47,14 @@ const cartSlice = createSlice({
     },
     removeFromCart: (state, action: PayloadAction<number>) => {
       const existingProduct = state.products.find(
-        (p) => p._id === action.payload
+        (p) => p.id === action.payload
       );
 
       if (existingProduct && existingProduct.quantity! >= 1) {
         state.total -= existingProduct.price * existingProduct.quantity!;
       }
 
-      state.products = state.products.filter((p) => p._id !== action.payload);
+      state.products = state.products.filter((p) => p.id !== action.payload);
     },
   },
 });

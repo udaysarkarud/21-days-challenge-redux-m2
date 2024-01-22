@@ -1,10 +1,15 @@
 export interface IProduct {
-  _id: number;
-  name: string;
-  image: string;
+  id: number;
+  title: string;
+  description: string;
   price: number;
-  features: string[];
-  status: boolean;
+  discountPercentage: number;
   rating: number;
+  stock: number;
+  brand: string;
+  category: string;
+  thumbnail: string;
+  images: string[];
+  status?: boolean;
   quantity?: number;
 }
